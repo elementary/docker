@@ -1,0 +1,7 @@
+#/bin/sh
+apt-get update
+apt-get -y install $1
+cd /tmp/build-dir
+cmake .
+env CTEST_OUTPUT_ON_FAILURE=true
+make all test

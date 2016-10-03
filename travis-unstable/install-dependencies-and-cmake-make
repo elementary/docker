@@ -1,0 +1,6 @@
+#/bin/sh
+apt-get update
+apt-get -y install $1
+cd /tmp/build-dir
+cmake .
+make
