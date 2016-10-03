@@ -4,7 +4,7 @@ services:
   - docker
 
 install:
-  - docker build -t loki-stable loki-stable
+  - docker build -t loki loki
   - docker build -t loki-unstable loki-unstable
 
 script:
