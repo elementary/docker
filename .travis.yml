@@ -6,6 +6,8 @@ services:
 install:
   - docker build -t loki loki
   - docker build -t loki-unstable loki-unstable
+  - docker build -t travis travis
+  - docker build -t travis-unstable travis-unstable
 
 script:
   - echo BUILDS PASSED
