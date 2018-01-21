@@ -1,0 +1,6 @@
+
+deb http://ppa.launchpad.net/elementary-os/stable/ubuntu bionic main
+# deb-src http://ppa.launchpad.net/elementary-os/stable/ubuntu bionic main
+
+deb http://ppa.launchpad.net/elementary-os/os-patches/ubuntu bionic main
+# deb-src http://ppa.launchpad.net/elementary-os/os-patches/ubuntu bionic main
