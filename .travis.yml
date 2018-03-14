@@ -6,6 +6,7 @@ services:
 install:
   - docker build -t loki loki
   - docker build -t loki-unstable loki-unstable
+  - docker build -t juno-unstable juno-unstable
 
 script:
   - echo BUILDS PASSED
