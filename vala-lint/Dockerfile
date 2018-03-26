@@ -1,14 +1,11 @@
 # elementary docker image for vala-lint
 
-FROM ubuntu:bionic
+FROM elementary/docker:juno-unstable
 
 MAINTAINER Blake Kostner <blake@elementary.io>
 
-RUN apt-get update && apt-get -y install software-properties-common
-
-RUN add-apt-repository -y ppa:elementary-os/daily
-
-RUN apt-get update && apt-get install -y io.elementary.vala-lint
+RUN apt-get update && \
+    apt-get install -y io.elementary.vala-lint
 
 RUN mkdir -p /var/opt/vala-lint
 
