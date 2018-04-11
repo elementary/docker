@@ -4,6 +4,8 @@ FROM elementary/docker:juno-unstable
 
 MAINTAINER Blake Kostner <blake@elementary.io>
 
+ENV DEBIAN_FRONTEND=noninteractive
+
 RUN apt-get update && apt-get install -y io.elementary.vala-lint
 
 RUN mkdir -p /var/opt/vala-lint

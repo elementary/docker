@@ -3,6 +3,8 @@ FROM ubuntu:xenial
 
 MAINTAINER Cody Garver <cody@elementary.io>
 
+ENV DEBIAN_FRONTEND=noninteractive
+
 RUN apt-get update && apt-get -y install software-properties-common
 
 RUN add-apt-repository -y ppa:elementary-os/os-patches
