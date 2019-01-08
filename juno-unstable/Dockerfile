@@ -11,4 +11,5 @@ RUN apt-get update && \
 	add-apt-repository -u -y ppa:elementary-os/daily && \
 	apt-get install -y elementary-os-overlay && \
 	apt-get update && \
-	apt-get -y dist-upgrade
+	apt-get -y dist-upgrade && \
+	apt-get install --no-install-recommends -y elementary-sdk
