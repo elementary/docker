@@ -6,6 +6,7 @@ services:
 install:
   - docker build -t stable stable
   - docker build -t unstable unstable
+  - docker build -t unstable-installer unstable-installer
   - docker build -t loki loki
   - docker build -t loki-unstable loki-unstable
   - docker build -t juno-stable juno-stable
