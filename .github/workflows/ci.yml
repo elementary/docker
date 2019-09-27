@@ -1,0 +1,31 @@
+name: Publish
+on:
+  schedule:
+    - cron:  '0 0 * * 1'
+jobs:
+  build:
+    strategy:
+      matrix:
+        image: [
+          juno-stable,
+          juno-stable-installer,
+          juno-unsatable,
+          juno-unstable-installer,
+          loki-stable,
+          loki-unstable,
+          stable,
+          stable-installer,
+          unstable,
+          unstable-installer
+        ]
+
+    name: Build "${{ matrix.image }}"
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Build Docker Image
+      run: |
+        docker login -u "${{ secrets.DockerUsername }}" -p "${{ secrets.DockerPassword }}"
+        cd "${{ matrix.image }}" || exit 1
+        docker build -t elementary/"${{ matrix.image }}" .
+        docker push elementary/"${{ matrix.image }}"
