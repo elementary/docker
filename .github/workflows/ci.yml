@@ -9,7 +9,7 @@ jobs:
         image: [
           juno-stable,
           juno-stable-installer,
-          juno-unsatable,
+          juno-unstable,
           juno-unstable-installer,
           loki-stable,
           loki-unstable,
