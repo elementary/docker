@@ -1,7 +1,5 @@
-# elementary OS Juno UNSTABLE
+# elementary OS Juno STABLE
 FROM ubuntu:bionic
-
-MAINTAINER Cody Garver <cody@elementary.io>
 
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -12,4 +10,6 @@ RUN apt-get update && \
 	apt-get install -y elementary-os-overlay && \
 	apt-get update && \
 	apt-get -y dist-upgrade && \
-	apt-get install --no-install-recommends -y elementary-sdk
+	apt-get install --no-install-recommends -y elementary-sdk && \
+  apt-get -y autoremove && \
+  apt-get autoclean
