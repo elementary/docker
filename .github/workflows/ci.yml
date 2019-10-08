@@ -1,5 +1,8 @@
 name: Publish
 on:
+  push:
+    branches:
+      - master
   schedule:
     - cron:  '0 0 * * 1'
 jobs:
@@ -19,10 +22,13 @@ jobs:
           unstable-installer
         ]
 
-    name: Build "${{ matrix.image }}"
+    name: Build ${{ matrix.image }}
     runs-on: ubuntu-latest
 
     steps:
+    - name: Clone
+      uses: actions/checkout@v1
+
     - name: Build Docker Image
       run: |
         docker login -u "${{ secrets.DockerUsername }}" -p "${{ secrets.DockerPassword }}"
