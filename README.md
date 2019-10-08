@@ -11,16 +11,16 @@
 
 ## Image Variants
 
-`elementary/stable`: This defaults to the latest stable elementary release.
+`elementary/docker:stable`: This defaults to the latest stable elementary release.
 
-`elementary/unstable`: This defaults to the latest unstable elementary release.
+`elementary/docker:unstable`: This defaults to the latest unstable elementary release.
 
-`elementary/<release>-stable` and `elementary/<release>-unstable`: These tags can
-be used to specify an exact version of elementary. For example, for a `loki` image: `elementary/loki-stable`
+`elementary/docker:<release>-stable` and `elementary/docker:<release>-unstable`: These tags can
+be used to specify an exact version of elementary. For example, for a `loki` image: `elementary/docker:loki-stable`
 
 ## Example usage
 
 ```sh
 # run the latest stable release in an interactive shell!
-docker run -it elementary/stable bash -l
+docker run -it elementary/docker bash -l
 ```

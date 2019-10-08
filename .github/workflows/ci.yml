@@ -19,7 +19,8 @@ jobs:
           stable,
           stable-installer,
           unstable,
-          unstable-installer
+          unstable-installer,
+          latest
         ]
 
     name: Build ${{ matrix.image }}
