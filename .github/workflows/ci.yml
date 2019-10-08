@@ -33,5 +33,5 @@ jobs:
       run: |
         docker login -u "${{ secrets.DockerUsername }}" -p "${{ secrets.DockerPassword }}"
         cd "${{ matrix.image }}" || exit 1
-        docker build -t elementary/"${{ matrix.image }}" .
-        docker push elementary/"${{ matrix.image }}"
+        docker build -t elementary/docker:"${{ matrix.image }}" .
+        docker push elementary/docker:"${{ matrix.image }}"
