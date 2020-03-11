@@ -28,4 +28,4 @@ jobs:
 
     - name: Build Docker Image
       run: |
-        docker build -t "${{ matrix.image }}" -f "${{ matrix.image }}" .
+        docker build -t "${{ matrix.image }}" -f "${{ matrix.image }}/Dockerfile" .
