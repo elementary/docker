@@ -1,0 +1,31 @@
+name: Build
+on: [pull_request]
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        image:
+          - juno-stable
+          - juno-stable-installer
+          - juno-unstable
+          - juno-unstable-installer
+          - loki-stable
+          - loki-unstable
+          - stable
+          - stable-installer
+          - unstable
+          - unstable-installer
+          - latest
+
+    name: ${{ matrix.image }}
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Clone
+      uses: actions/checkout@v1
+
+    - name: Build Docker Image
+      run: |
+        docker build -t "${{ matrix.image }}" -f "${{ matrix.image }}/Dockerfile" .
