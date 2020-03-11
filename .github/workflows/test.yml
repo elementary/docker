@@ -28,6 +28,4 @@ jobs:
 
     - name: Build Docker Image
       run: |
-         IMAGE="${{ matrix.image }}"
-        cd "$IMAGE" || exit 1
-        docker build -t elementary/docker:"$IMAGE" .
+        docker build -t "${{ matrix.image }}" -f "${{ matrix.image }}" .
