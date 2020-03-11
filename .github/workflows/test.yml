@@ -1,0 +1,46 @@
+name: Publish
+on: [push, pull_request]
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        image: [
+          juno-stable,
+          juno-stable-installer,
+          juno-unstable,
+          juno-unstable-installer,
+          loki-stable,
+          loki-unstable,
+          stable,
+          stable-installer,
+          unstable,
+          unstable-installer,
+          latest
+        ]
+
+    name: Build ${{ matrix.image }}
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Clone
+      uses: actions/checkout@v1
+
+    - name: Build Docker Image
+      run: |
+        docker login -u "${{ secrets.DockerUsername }}" -p "${{ secrets.DockerPassword }}"
+        IMAGE="${{ matrix.image }}"
+        IMAGE_NAME="$(echo "$IMAGE" | awk -F'-' '{print $1}')"
+        # cut the first hyphenated section from tag name, since it will be the image name instead
+        TAG=${IMAGE#*-}
+        cd "$IMAGE" || exit 1
+        # don't build default tags.
+        declare -a arr=("stable" "stable-installer" "unstable" "unstable-installer" "latest")
+        if [[ ! "${arr[@]}" =~ "$IMAGE" ]]; then
+          # rename unstable tags to latest
+          if [ "$TAG" == "unstable" ]; then TAG="latest"; fi
+          if [ "$TAG" == "unstable-installer" ]; then TAG="installer"; fi
+          docker build -t elementary/"$IMAGE_NAME":"$TAG" .
+        fi
+        # support older format for images and tags
+        docker build -t elementary/docker:"$IMAGE" .
