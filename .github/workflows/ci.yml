@@ -16,6 +16,7 @@ jobs:
           juno-unstable-installer,
           loki-stable,
           loki-unstable,
+          odin-unstable,
           stable,
           stable-installer,
           unstable,
