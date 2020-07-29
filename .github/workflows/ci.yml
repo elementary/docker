@@ -33,7 +33,7 @@ jobs:
 
     - name: Build Docker Image
       run: |
-        docker login -u "${{ secrets.DockerUsername }}" -p "${{ secrets.DockerPassword }}"
+        docker login -u "${{ secrets.DOCKER_USERNAME }}" -p "${{ secrets.DOCKER_PASSWORD }}"
         IMAGE="${{ matrix.image }}"
         IMAGE_NAME="$(echo "$IMAGE" | awk -F'-' '{print $1}')"
         # cut the first hyphenated section from tag name, since it will be the image name instead
