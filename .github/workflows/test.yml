@@ -28,8 +28,9 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Lint Image
-      run: |
-        docker run --rm -i -v ${PWD}/hadolint.yaml:/root/.config/hadolint.yaml hadolint/hadolint < "${{ matrix.image }}/Dockerfile"
+    - uses: brpaz/hadolint-action@v1.2.1
+      with:
+        dockerfile: ${{ matrix.image }}/Dockerfile
 
     - name: Build Docker Image
       run: |
