@@ -4,7 +4,7 @@ FROM ubuntu:focal
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && \
-    apt-get -y install software-properties-common && \
+    apt-get -y install --no-install-recommends software-properties-common && \
     add-apt-repository -u -y ppa:elementary-os/os-patches && \
     add-apt-repository -u -y ppa:elementary-os/stable && \
     apt-get install -y elementary-os-overlay && \
