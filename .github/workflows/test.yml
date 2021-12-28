@@ -28,6 +28,11 @@ jobs:
     - name: Clone
       uses: actions/checkout@v2
 
+    - name: Lint Image
+      uses: brpaz/hadolint-action@v1.2.1
+      with:
+        dockerfile: ${{ matrix.image }}/Dockerfile
+
     - name: Build Docker Image
       run: |
         docker build -t "${{ matrix.image }}" -f "${{ matrix.image }}/Dockerfile" .
