@@ -18,6 +18,7 @@ jobs:
           juno-unstable-installer,
           loki-stable,
           loki-unstable,
+          next-unstable,
           stable,
           stable-installer,
           unstable,
