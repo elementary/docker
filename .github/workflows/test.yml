@@ -9,6 +9,8 @@ jobs:
         image:
           - odin-stable
           - odin-unstable
+          - horus-stable
+          - horus-unstable
           - juno-stable
           - juno-stable-installer
           - juno-unstable
