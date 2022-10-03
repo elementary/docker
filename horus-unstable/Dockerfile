@@ -1,4 +1,4 @@
-# elementary OS Next UNSTABLE
+# elementary OS Horus UNSTABLE
 FROM ubuntu:jammy
 
 ENV DEBIAN_FRONTEND=noninteractive

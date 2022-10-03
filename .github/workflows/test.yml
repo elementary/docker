@@ -7,6 +7,7 @@ jobs:
       fail-fast: false
       matrix:
         image:
+          - horus-unstable
           - odin-stable
           - odin-unstable
           - juno-stable
