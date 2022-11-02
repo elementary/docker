@@ -10,6 +10,7 @@ jobs:
     strategy:
       matrix:
         image: [
+          horus-stable,
           horus-unstable,
           odin-stable,
           odin-unstable,
