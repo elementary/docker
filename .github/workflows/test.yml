@@ -32,7 +32,7 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Lint Image
-      uses: brpaz/hadolint-action@v1.2.1
+      uses: brpaz/hadolint-action@v3.1.0
       with:
         dockerfile: ${{ matrix.image }}/Dockerfile
 
