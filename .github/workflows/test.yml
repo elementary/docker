@@ -29,10 +29,10 @@ jobs:
 
     steps:
     - name: Clone
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Lint Image
-      uses: brpaz/hadolint-action@v1.2.1
+      uses: hadolint/hadolint-action@v3.0.0
       with:
         dockerfile: ${{ matrix.image }}/Dockerfile
 
