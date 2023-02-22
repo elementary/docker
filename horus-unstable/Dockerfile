@@ -10,7 +10,7 @@ RUN apt-get update && \
   apt-get install -y --no-install-recommends elementary-os-overlay && \
   apt-get update && \
   apt-get -y dist-upgrade && \
-  apt-get install --no-install-recommends -y elementary-sdk && \
+  apt-get install --no-install-recommends -y elementary-sdk elementary-icon-theme && \
   apt-get -y autoremove && \
   apt-get autoclean && \
   rm -rf /var/lib/apt/lists/*
