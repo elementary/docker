@@ -30,6 +30,9 @@ jobs:
 
     name: Build ${{ matrix.image }}
     runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
 
     steps:
     - name: Clone
@@ -37,7 +40,7 @@ jobs:
 
     - name: Build Docker Image
       run: |
-        docker login -u "${{ secrets.DOCKER_USERNAME }}" -p "${{ secrets.DOCKER_PASSWORD }}"
+        echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u $ --password-stdin
         IMAGE="${{ matrix.image }}"
         IMAGE_NAME="$(echo "$IMAGE" | awk -F'-' '{print $1}')"
         # cut the first hyphenated section from tag name, since it will be the image name instead
@@ -50,8 +53,5 @@ jobs:
           if [ "$TAG" == "unstable" ]; then TAG="latest"; fi
           if [ "$TAG" == "unstable-installer" ]; then TAG="installer"; fi
           docker build -t elementary/"$IMAGE_NAME":"$TAG" .
-          echo docker push elementary/"$IMAGE_NAME":"$TAG"
+          docker push ghcr.io/${{ github.repository_owner }}/"$IMAGE_NAME":"$TAG"
         fi
-        # support older format for images and tags
-        docker build -t elementary/docker:"$IMAGE" .
-        docker push elementary/docker:"$IMAGE"
