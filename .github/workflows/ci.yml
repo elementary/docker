@@ -52,6 +52,7 @@ jobs:
           # rename unstable tags to latest
           if [ "$TAG" == "unstable" ]; then TAG="latest"; fi
           if [ "$TAG" == "unstable-installer" ]; then TAG="installer"; fi
-          docker build -t elementary/"$IMAGE_NAME":"$TAG" .
+          docker build -t "$IMAGE_NAME":"$TAG" .
+          docker tag "$IMAGE_NAME":"$TAG" ghcr.io/${{ github.repository_owner }}/"$IMAGE_NAME":"$TAG"
           docker push ghcr.io/${{ github.repository_owner }}/"$IMAGE_NAME":"$TAG"
         fi
