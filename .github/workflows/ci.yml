@@ -42,17 +42,6 @@ jobs:
       run: |
         echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u $ --password-stdin
         IMAGE="${{ matrix.image }}"
-        IMAGE_NAME="$(echo "$IMAGE" | awk -F'-' '{print $1}')"
-        # cut the first hyphenated section from tag name, since it will be the image name instead
-        TAG=${IMAGE#*-}
         cd "$IMAGE" || exit 1
-        # don't build default tags.
-        declare -a arr=("stable" "stable-installer" "unstable" "unstable-installer" "latest")
-        if [[ ! "${arr[@]}" =~ "$IMAGE" ]]; then
-          # rename unstable tags to latest
-          if [ "$TAG" == "unstable" ]; then TAG="latest"; fi
-          if [ "$TAG" == "unstable-installer" ]; then TAG="installer"; fi
-          docker build -t "$IMAGE_NAME":"$TAG" .
-          docker tag "$IMAGE_NAME":"$TAG" ghcr.io/${{ github.repository_owner }}/"$IMAGE_NAME":"$TAG"
-          docker push ghcr.io/${{ github.repository_owner }}/"$IMAGE_NAME":"$TAG"
-        fi
+        docker build -t ghcr.io/${{ github.repository_owner }}/docker:"$IMAGE" .
+        docker push ghcr.io/${{ github.repository_owner }}/docker:"$IMAGE"
