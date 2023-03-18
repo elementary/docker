@@ -20,6 +20,7 @@ jobs:
           - next-unstable
           - stable
           - stable-installer
+          - ubuntu-lunar-unstable
           - unstable
           - unstable-installer
           - latest
