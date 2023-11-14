@@ -25,7 +25,6 @@ jobs:
           next-unstable,
           stable,
           stable-installer,
-          ubuntu-lunar-unstable,
           ubuntu-mantic-unstable,
           unstable,
           unstable-installer,
