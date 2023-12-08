@@ -21,6 +21,7 @@ jobs:
           - stable
           - stable-installer
           - ubuntu-mantic-unstable
+          - ubuntu-noble-unstable
           - unstable
           - unstable-installer
           - latest
