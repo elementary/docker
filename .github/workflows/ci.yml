@@ -22,7 +22,6 @@ jobs:
           loki-unstable,
           next-unstable,
           stable,
-          stable-installer,
           ubuntu-noble-unstable,
           unstable,
           latest
