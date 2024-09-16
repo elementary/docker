@@ -12,6 +12,8 @@ jobs:
       matrix:
         image: [
           development-target,
+          circe-stable,
+          circe-unstable,
           horus-stable,
           horus-unstable,
           odin-stable,
@@ -26,7 +28,6 @@ jobs:
           stable,
           stable-installer,
           ubuntu-mantic-unstable,
-          ubuntu-noble-unstable,
           unstable,
           unstable-installer,
           latest
