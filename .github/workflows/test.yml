@@ -12,18 +12,13 @@ jobs:
           - odin-stable
           - odin-unstable
           - juno-stable
-          - juno-stable-installer
           - juno-unstable
-          - juno-unstable-installer
           - loki-stable
           - loki-unstable
           - next-unstable
           - stable
-          - stable-installer
-          - ubuntu-mantic-unstable
           - ubuntu-noble-unstable
           - unstable
-          - unstable-installer
           - latest
 
     name: ${{ matrix.image }}
