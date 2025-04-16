@@ -1,15 +1,13 @@
-# elementary OS Juno STABLE for io.elementary.installer
-FROM ubuntu:bionic
+# elementary OS Odin STABLE
+FROM ubuntu:focal
 
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && \
-    apt-get -y install software-properties-common && \
+    apt-get -y install --no-install-recommends software-properties-common && \
     add-apt-repository -u -y ppa:elementary-os/os-patches && \
     add-apt-repository -u -y ppa:elementary-os/stable && \
-    add-apt-repository -u -y ppa:system76/proposed && \
-    add-apt-repository -u -y ppa:system76/pop && \
-    apt-get install -y elementary-os-overlay && \
+    apt-get install -y --no-install-recommends elementary-os-overlay && \
     apt-get update && \
     apt-get -y dist-upgrade && \
     apt-get install --no-install-recommends -y elementary-sdk && \

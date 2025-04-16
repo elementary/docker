@@ -7,17 +7,19 @@ jobs:
       fail-fast: false
       matrix:
         image:
+          - circe-stable
+          - circe-unstable
+          - horus-stable
+          - horus-unstable
+          - odin-stable
           - odin-unstable
           - juno-stable
-          - juno-stable-installer
           - juno-unstable
-          - juno-unstable-installer
           - loki-stable
           - loki-unstable
+          - next-unstable
           - stable
-          - stable-installer
           - unstable
-          - unstable-installer
           - latest
 
     name: ${{ matrix.image }}
@@ -25,7 +27,12 @@ jobs:
 
     steps:
     - name: Clone
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
+
+    - name: Lint Image
+      uses: hadolint/hadolint-action@v3.1.0
+      with:
+        dockerfile: ${{ matrix.image }}/Dockerfile
 
     - name: Build Docker Image
       run: |
