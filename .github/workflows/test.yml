@@ -27,7 +27,7 @@ jobs:
 
     steps:
     - name: Clone
-      uses: actions/checkout@v5
+      uses: actions/checkout@v6
 
     - name: Lint Image
       uses: hadolint/hadolint-action@v3.3.0
