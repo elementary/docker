@@ -8,8 +8,6 @@ RUN apt-get update && \
   add-apt-repository -u -y ppa:elementary-os/os-patches && \
   add-apt-repository -u -y ppa:elementary-os/stable && \
   apt-get install -y --no-install-recommends elementary-os-overlay && \
-  mv /usr/sbin/telinit /usr/sbin/telinit.bak && \
-  ln -s /usr/bin/true /usr/sbin/telinit &&\
   apt-get update && \
   apt-get -y dist-upgrade && \
   apt-get install --no-install-recommends -y elementary-sdk elementary-icon-theme && \
