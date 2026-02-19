@@ -17,6 +17,8 @@ jobs:
           - juno-unstable
           - loki-stable
           - loki-unstable
+          - tanit-stable
+          - tanit-unstable
           - next-unstable
           - stable
           - unstable
